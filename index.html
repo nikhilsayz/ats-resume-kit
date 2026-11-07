@@ -19,9 +19,9 @@
 
 <script>
 /* ============ EDIT THESE THREE LINES ============ */
-var BUY_URL  = "https://topmate.io/YOUR_USERNAME/YOUR_PRODUCT";  // your Topmate kit link
-var PIXEL_ID = "";                                                // your Meta Pixel ID, numbers only
-var SUPPORT_EMAIL = "you@example.com";                            // your support email
+var BUY_URL  = "https://topmate.io/nikhil_kalimahanthi/2395423";   // Topmate kit link
+var PIXEL_ID = "1786804759213985";                                // Meta Pixel ID
+var SUPPORT_EMAIL = "https://topmate.io/nikhil_kalimahanthi";       // support: an email address or a link
 /* ================================================ */
 if (PIXEL_ID) {
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -224,6 +224,7 @@ footer a{color:#fff}
 </style>
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1786804759213985&ev=PageView&noscript=1"></noscript>
 
 <div class="strip"><div class="wrap"><span>INSTANT DOWNLOAD</span><i>/</i><span>PAY BY UPI</span><i>/</i><span>₹149 ONE TIME</span></div></div>
 
@@ -403,7 +404,7 @@ footer a{color:#fff}
       try{ if(window.fbq) fbq('track','InitiateCheckout',{value:149,currency:'INR',content_name:'ATS Resume Kit'}); }catch(e){}
     });
   });
-  document.querySelectorAll('a.mail').forEach(function(a){ a.href = 'mailto:' + SUPPORT_EMAIL; });
+  document.querySelectorAll('a.mail').forEach(function(a){ a.href = SUPPORT_EMAIL.indexOf('@') > 0 ? 'mailto:' + SUPPORT_EMAIL : SUPPORT_EMAIL; });
 
   // ATS demo toggle, auto-plays until touched
   var demo = document.getElementById('demo'), auto = true, cur = 'fancy';
