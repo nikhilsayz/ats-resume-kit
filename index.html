@@ -183,6 +183,27 @@ summary:after{content:"";flex:none;width:12px;height:12px;border-right:2.5px sol
 details[open] summary:after{transform:rotate(-135deg) translateY(-3px)}
 details p{padding:0 0 18px;color:#3A3A36;font-size:16px;max-width:40em}
 
+
+/* more products */
+.more{background:var(--white);border-top:1px solid var(--rule)}
+.prods{display:grid;gap:16px}
+.prod{border:2px solid var(--ink);border-radius:8px;background:#fff;display:grid;grid-template-columns:96px 1fr;gap:16px;padding:18px;align-items:start}
+.prod img{width:96px;border-radius:2px;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.prod h3{font-weight:800;font-size:20px;line-height:1.2}
+.prod p{font-size:15px;color:#3A3A36;margin-top:6px}
+.prod ul{list-style:none;margin-top:10px;display:grid;gap:4px;font-size:14px;color:#3A3A36}
+.prod li:before{content:"";display:inline-block;width:7px;height:7px;background:var(--hi-deep);margin-right:8px;vertical-align:1px}
+.prod .row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;flex-wrap:wrap}
+.prod .amt{font-weight:900;font-stretch:75%;font-size:34px;line-height:1}
+.prod .amt s{font-weight:600;font-size:18px;color:var(--soft);margin-left:6px}
+.prod a.go{font-weight:800;font-size:15px;text-decoration:none;border:2px solid var(--ink);border-radius:6px;padding:10px 16px;background:#fff}
+.prod a.go:hover{background:var(--hi)}
+.prod.best{background:var(--ink);color:#fff;border-color:var(--ink)}
+.prod.best p,.prod.best ul{color:#C8C6BE}
+.prod.best a.go{background:var(--hi);border-color:var(--hi);color:var(--ink)}
+.tag{display:inline-block;font:600 11px/1 var(--mono);letter-spacing:.06em;background:var(--hi);color:var(--ink);padding:5px 7px;border-radius:3px;margin-bottom:8px}
+@media (min-width:860px){.prods{grid-template-columns:repeat(3,1fr)}.prod{grid-template-columns:1fr}.prod img{width:120px}.prod>div{display:flex;flex-direction:column;height:100%}.prod .row{margin-top:auto;padding-top:14px}}
+
 /* final */
 .final{background:var(--hi);border-top:2px solid var(--ink);padding:64px 0}
 .final .wrap{display:grid;gap:22px}
@@ -374,6 +395,24 @@ footer a{color:#fff}
   <details><summary>Refunds?</summary><p>It's an instant digital download, so sales are final. If a file won't open or is missing, email us and we'll fix it or send it again.</p></details>
 </div></section>
 
+<section class="s more" id="more"><div class="wrap">
+  <div class="head"><div class="label">After the resume</div><h2 class="cond" style="margin-top:12px">Got the interview? <span class="mark">Go further.</span></h2><p class="intro">Optional add-ons for the next steps. Start with the ₹149 kit above. Come back for these when you need them.</p></div>
+  <div class="prods">
+    <div class="prod"><img src="img/cover_qbank.jpg" alt="Interview Question Bank cover" loading="lazy" width="560" height="792">
+      <div><h3>100 Interview Questions with How to Answer</h3><p>What each question is really checking, and a way to answer it.</p>
+      <ul><li>Common, behavioural, fresher and role questions</li><li>STAR and two more answer formats</li><li>20 questions to ask the interviewer</li></ul>
+      <div class="row"><div class="amt">₹199</div><a class="go buy-x" data-val="199" data-name="Interview Question Bank" href="https://topmate.io/nikhil_kalimahanthi/2395410">Get it</a></div></div></div>
+    <div class="prod"><img src="img/cover_playbook.jpg" alt="Offer and negotiation playbook cover" loading="lazy" width="560" height="792">
+      <div><h3>Offer, Negotiation and First 90 Days Playbook</h3><p>Read your offer, ask for more, and start the new job well.</p>
+      <ul><li>CTC, in-hand, variable pay, notice period</li><li>10 negotiation scripts for email and calls</li><li>30-60-90 day plans and a job application tracker</li></ul>
+      <div class="row"><div class="amt">₹499</div><a class="go buy-x" data-val="499" data-name="Offer Playbook" href="https://topmate.io/nikhil_kalimahanthi/2395420">Get it</a></div></div></div>
+    <div class="prod best"><img src="img/cover_gallery.jpg" alt="Complete bundle" loading="lazy" width="560" height="792">
+      <div><span class="tag">ALL THREE</span><h3>Complete Job Search Bundle</h3><p>The resume kit, the interview questions and the playbook in one download.</p>
+      <ul><li>Everything on this page</li><li>Resume to first day</li><li>₹148 less than buying separately</li></ul>
+      <div class="row"><div class="amt">₹699<s>₹847</s></div><a class="go buy-x" data-val="699" data-name="Complete Bundle" href="https://topmate.io/nikhil_kalimahanthi/2395442">Get the bundle</a></div></div></div>
+  </div>
+</div></section>
+
 <section class="final"><div class="wrap">
   <div>
     <h2 class="cond">One more month of no replies, or ₹149.</h2>
@@ -402,6 +441,11 @@ footer a{color:#fff}
     a.href = BUY_URL;
     a.addEventListener('click', function(){
       try{ if(window.fbq) fbq('track','InitiateCheckout',{value:149,currency:'INR',content_name:'ATS Resume Kit'}); }catch(e){}
+    });
+  });
+  document.querySelectorAll('a.buy-x').forEach(function(a){
+    a.addEventListener('click', function(){
+      try{ if(window.fbq) fbq('track','InitiateCheckout',{value:+a.dataset.val,currency:'INR',content_name:a.dataset.name}); }catch(e){}
     });
   });
   document.querySelectorAll('a.mail').forEach(function(a){ a.href = SUPPORT_EMAIL.indexOf('@') > 0 ? 'mailto:' + SUPPORT_EMAIL : SUPPORT_EMAIL; });
